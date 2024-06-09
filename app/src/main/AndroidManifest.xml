@@ -25,6 +25,8 @@
         <!-- Declare OperaDetailActivity here -->
         <activity android:name=".OperaDetailActivity" />
 
+        <!-- Declare PaintingDetailActivity here -->
+        <activity android:name=".PaintingDetailActivity" />
     </application>
 
 </manifest>

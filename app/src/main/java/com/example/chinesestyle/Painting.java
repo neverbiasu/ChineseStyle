@@ -5,9 +5,9 @@ public class Painting {
     private String title;
     private String artist;
     private String dynasty;
-    private String imageUrl;
+    private int imageUrl;
 
-    public Painting(int id, String title, String artist, String dynasty, String imageUrl) {
+    public Painting(int id, String title, String artist, String dynasty, int imageUrl) {
         this.id = id;
         this.title = title;
         this.artist = artist;
@@ -47,11 +47,15 @@ public class Painting {
         this.dynasty = dynasty;
     }
 
-    public String getImageUrl() {
+    public int getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+    public void setImageUrl(int imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public int getImageResource () {
+        return imageUrl;
     }
 }

@@ -33,15 +33,13 @@ public class PaintingAdapter extends RecyclerView.Adapter<PaintingAdapter.Painti
     public void onBindViewHolder(@NonNull PaintingViewHolder holder, int position) {
         Painting painting = paintings.get(position);
         holder.textViewPaintingTitle.setText(painting.getTitle());
+        holder.imageViewPainting.setImageResource(painting.getImageResource());
 
-        // 加载图片（这里假设我们使用Glide库）
-        Glide.with(context)
-                .load(painting.getImageUrl())
-                .placeholder(R.drawable.placeholder_painting)
-                .into(holder.imageViewPainting);
-
+        // 添加点击事件监听器
         holder.itemView.setOnClickListener(v -> {
-            // TODO: 实现点击打开绘画详情
+            android.content.Intent intent = new android.content.Intent(context, com.example.chinesestyle.PaintingDetailActivity.class);
+            intent.putExtra("paintingId", painting.getId());
+            context.startActivity(intent);
         });
     }
 

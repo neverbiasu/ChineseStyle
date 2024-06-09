@@ -40,8 +40,8 @@ public class PaintingsFragment extends Fragment {
 
     private List<Painting> getPaintings() {
         List<Painting> paintings = new ArrayList<>();
-        paintings.add(new Painting(1, "富春山居图", "黄公望", "元代", "https://example.com/fuchun.jpg"));
-        paintings.add(new Painting(2, "千里江山图", "王希孟", "北宋", "https://example.com/qianli.jpg"));
+        paintings.add(new Painting(1, "富春山居图", "黄公望", "元代", R.drawable.fuchun));
+        paintings.add(new Painting(2, "千里江山图", "王希孟", "北宋", R.drawable.qianli));
         // 添加更多绘画作品
         return paintings;
     }

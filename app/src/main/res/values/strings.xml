@@ -18,4 +18,8 @@
     <string name="pause">暂停</string>
     <string name="mask_meaning">脸谱寓意</string>
     <string name="search_opera">搜索京剧</string>
+    <string name="painting_artist">画家</string>
+    <string name="painting_dynasty">朝代</string>
+    <string name="painting_description">作品简介</string>
+    <string name="painting_slide_desc">绘画作品细节</string>
 </resources>
