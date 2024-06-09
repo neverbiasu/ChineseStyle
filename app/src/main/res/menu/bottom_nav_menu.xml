@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_classics"
+        android:icon="@drawable/ic_book"
+        android:title="@string/nav_classics" />
+    <item
+        android:id="@+id/nav_festivals"
+        android:icon="@drawable/ic_calendar"
+        android:title="@string/nav_festivals" />
+    <item
+        android:id="@+id/nav_paintings"
+        android:icon="@drawable/ic_paint"
+        android:title="@string/nav_paintings" />
+    <item
+        android:id="@+id/nav_opera"
+        android:icon="@drawable/ic_mask"
+        android:title="@string/nav_opera" />
+</menu>

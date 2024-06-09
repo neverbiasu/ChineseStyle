@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">国韵华风</string>
+    <string name="title_classics">国学殿堂</string>
+    <string name="nav_classics">国学</string>
+    <string name="nav_festivals">节日</string>
+    <string name="nav_paintings">国画</string>
+    <string name="nav_opera">京剧</string>
+    <string name="title_festivals">华夏风韵</string>
+    <string name="desc_festival_icon">节日图标</string>
+    <string name="paintings_title">丹青妙境</string>
+    <string name="painting_image_desc">中国传统绘画作品</string>
+    <string name="opera_title">梨园霓裳</string>
+    <string name="opera_mask_desc">京剧脸谱</string>
+    <string name="play_aria">播放唱段</string>
+</resources>
