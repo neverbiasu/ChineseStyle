@@ -40,6 +40,9 @@ public class OperaDetailActivity extends AppCompatActivity {
         buttonPlayPause.setOnClickListener(v -> togglePlayPause());
 
         imageViewOperaMask.setOnClickListener(v -> showMaskDialog(opera.getMaskDescription()));
+
+        Button buttonBack = findViewById(R.id.buttonBack);
+        buttonBack.setOnClickListener(v -> finish());
     }
 
     private void setupOperaDetails(Opera opera) {

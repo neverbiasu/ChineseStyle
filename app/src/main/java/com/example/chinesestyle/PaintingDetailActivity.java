@@ -9,6 +9,7 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import java.util.List;
 import java.util.ArrayList;
 import com.example.chinesestyle.adapter.PaintingSlideAdapter;
+import android.widget.Button;
 
 public class PaintingDetailActivity extends AppCompatActivity {
     private TextView textViewPaintingTitle, textViewArtist, textViewDynasty, textViewDescription;
@@ -34,6 +35,9 @@ public class PaintingDetailActivity extends AppCompatActivity {
         if (painting != null) {
             setupPaintingDetails(painting);
         }
+
+        Button buttonBack = findViewById(R.id.buttonBack);
+        buttonBack.setOnClickListener(v -> finish());
     }
 
     private void setupPaintingDetails(Painting painting) {
