@@ -12,4 +12,10 @@
     <string name="opera_title">梨园霓裳</string>
     <string name="opera_mask_desc">京剧脸谱</string>
     <string name="play_aria">播放唱段</string>
+    <string name="story_summary">故事梗概</string>
+    <string name="famous_aria">名段欣赏</string>
+    <string name="play">播放</string>
+    <string name="pause">暂停</string>
+    <string name="mask_meaning">脸谱寓意</string>
+    <string name="search_opera">搜索京剧</string>
 </resources>

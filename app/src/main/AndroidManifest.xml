@@ -21,6 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Declare OperaDetailActivity here -->
+        <activity android:name=".OperaDetailActivity" />
+
     </application>
 
 </manifest>

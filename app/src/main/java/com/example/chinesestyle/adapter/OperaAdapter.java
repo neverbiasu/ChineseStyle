@@ -1,6 +1,7 @@
 package com.example.chinesestyle.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.chinesestyle.R;
 import com.example.chinesestyle.models.Opera;
+import com.example.chinesestyle.OperaDetailActivity;
 import java.io.IOException;
 import java.util.List;
 
@@ -56,7 +58,9 @@ public class OperaAdapter extends RecyclerView.Adapter<OperaAdapter.OperaViewHol
         });
 
         holder.itemView.setOnClickListener(v -> {
-            // TODO: 实现点击打开京剧详情
+            Intent intent = new Intent(context, OperaDetailActivity.class);
+            intent.putExtra("operaId", opera.getId());
+            context.startActivity(intent);
         });
     }
 
@@ -84,5 +88,10 @@ public class OperaAdapter extends RecyclerView.Adapter<OperaAdapter.OperaViewHol
             mediaPlayer.release();
             mediaPlayer = null;
         }
+    }
+
+    public void updateData(List<Opera> newOperas) {
+        this.operas = newOperas;
+        notifyDataSetChanged();
     }
 }

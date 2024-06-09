@@ -3,21 +3,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Title -->
     <TextView
-        android:id="@+id/opera_title"
+        android:id="@+id/title_festivals"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="@string/opera_title"
+        android:text="@string/title_festivals"
         android:textSize="24sp"
         android:textStyle="bold" />
 
+    <!-- Search and Category Filter -->
+    <LinearLayout
+        android:id="@+id/search_and_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_festivals"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/search_opera"
+            android:inputType="text"
+            android:layout_marginEnd="16dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Opera List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewOpera"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/opera_title"
-        android:layout_marginTop="16dp"
-        android:padding="8dp"/>
+        android:layout_below="@id/search_and_category"
+        android:padding="8dp" />
+
 </RelativeLayout>
