@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chinesestyle.models.Classic;
 import com.example.chinesestyle.adapter.ClassicAdapter;
+import com.example.chinesestyle.helpers.DatabaseHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,7 @@ public class ClassicsFragment extends Fragment {
     private RecyclerView recyclerView;
     private ClassicAdapter adapter;
     private List<Classic> classicsList;
+    private DatabaseHelper databaseHelper;
 
     @Nullable
     @Override
@@ -28,7 +30,8 @@ public class ClassicsFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView_classics);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        classicsList = getDummyData(); // 临时方法，后续替换为真实数据
+        databaseHelper = new DatabaseHelper(getContext());
+        classicsList = databaseHelper.getAllClassics();
         adapter = new ClassicAdapter(classicsList);
         recyclerView.setAdapter(adapter);
 
@@ -37,8 +40,6 @@ public class ClassicsFragment extends Fragment {
 
     private List<Classic> getDummyData() {
         List<Classic> data = new ArrayList<Classic>();
-        data.add(new Classic("春晓", "唐代 孟浩然", "春眠不觉晓，处处闻啼鸟..."));
-        data.add(new Classic("静夜思", "唐代 李白", "床前明月光，疑是地上霜..."));
         // 添加更多示例数据
         return data;
     }

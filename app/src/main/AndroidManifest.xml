@@ -33,6 +33,9 @@
         <!-- Declare FestivalDetailActivity here -->
         <activity android:name=".FestivalDetailActivity" />
 
+        <!-- Declare ClassicDetailActivity here -->
+        <activity android:name=".ClassicDetailActivity" />
+
     </application>
 
 </manifest>

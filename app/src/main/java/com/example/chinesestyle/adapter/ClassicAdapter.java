@@ -1,5 +1,6 @@
 package com.example.chinesestyle.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chinesestyle.R;
 import com.example.chinesestyle.models.Classic;
+import com.example.chinesestyle.ClassicDetailActivity;
 
 import java.util.List;
 
@@ -32,7 +34,9 @@ public class ClassicAdapter extends RecyclerView.Adapter<ClassicAdapter.ClassicV
         holder.authorTextView.setText(classic.getAuthor());
 
         holder.itemView.setOnClickListener(v -> {
-            // TODO: 显示诗词全文的对话框
+            Intent intent = new Intent(v.getContext(), ClassicDetailActivity.class);
+            intent.putExtra("CLASSIC_ID", classic.getId());
+            v.getContext().startActivity(intent);
         });
     }
 
