@@ -16,4 +16,8 @@
         android:id="@+id/nav_opera"
         android:icon="@drawable/ic_mask"
         android:title="@string/nav_opera" />
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:icon="@drawable/ic_settings" />
 </menu>

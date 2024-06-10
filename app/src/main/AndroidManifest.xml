@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -15,13 +14,7 @@
         android:networkSecurityConfig="@xml/network_permission_config"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".MainActivity">
         </activity>
 
         <!-- Declare OperaDetailActivity here -->
@@ -36,6 +29,21 @@
         <!-- Declare ClassicDetailActivity here -->
         <activity android:name=".ClassicDetailActivity" />
 
+        <!-- Declare RegisterActivity here -->
+        <activity android:name=".RegisterActivity" />
+
+        <!-- Declare LoginActivity here -->
+        <activity android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Declare SettingsActivity here -->
+        <activity android:name=".SettingsActivity" />
     </application>
 
 </manifest>

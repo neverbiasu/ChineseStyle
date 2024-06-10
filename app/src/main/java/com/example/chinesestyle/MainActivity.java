@@ -10,16 +10,29 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
+import android.content.Intent;
+import android.view.Menu;
 
 import com.example.chinesestyle.models.PaintingsFragment;
+import com.example.chinesestyle.helpers.SharedPrefsManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
+    private SharedPrefsManager prefsManager;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.bottom_nav_menu, menu);
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        prefsManager = SharedPrefsManager.getInstance(this);
+        setTheme(prefsManager.isDarkTheme() ? R.style.AppTheme_Dark : R.style.AppTheme_Light);
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -42,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
                 if (item.getItemId() == R.id.nav_opera) {
                     selectedFragment = new OperaFragment();
                 }
+
+                if (item.getItemId() == R.id.action_settings) {
+                    Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
+
                 // other conditions
                 if (selectedFragment != null) {
                     getSupportFragmentManager().beginTransaction()

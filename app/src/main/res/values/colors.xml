@@ -2,5 +2,22 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorAccent">#FF808080</color>
+    <color name="background_dark">#303030</color> <!-- 深色背景 -->
+    <color name="text_dark">#FFFFFF</color>       <!-- 深色文本 -->
+    <color name="accent_dark">#FF4081</color>     <!-- 深色突出颜色 -->
+
+    <color name="background_light">#E0E0E0</color> <!-- 浅色背景 -->
+    <color name="text_light">#000000</color>       <!-- 浅色文本 -->
+    <color name="accent_light">#FFC107</color>     <!-- 浅色突出颜色 -->
+
+    <color name="colorPrimary">#3F51B5</color>     <!-- Primary color -->
+    <color name="colorPrimaryDark">#303F9F</color> <!-- Primary dark color -->
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="background_login">#A7BDD2</color> <!-- 登录背景 -->
+    <color name="text_login">#F1E7E5</color>       <!-- 登录文本 -->
+    <color name="accent_login">#C1ACB5</color>     <!-- 登录突出颜色 -->
+    <color name="colorPrimary_login">#A7BDD2</color> <!-- 登录主色 -->
+    <color name="text_color">#BEA0AC</color> <!-- 登录填充字 -->
+    <color name="outline_color">#F5BBB0</color>
 </resources>

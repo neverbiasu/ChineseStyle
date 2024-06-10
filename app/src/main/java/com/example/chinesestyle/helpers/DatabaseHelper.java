@@ -16,7 +16,7 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "chinesestyle.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     private static final String TABLE_FESTIVALS = "festivals";
     private static final String COLUMN_ID = "id";
@@ -34,6 +34,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_CONTENT = "content";
     private static final String COLUMN_AUDIOURL = "audioUrl";
     private static final String COLUMN_CATEGORY = "category";
+    private static final String TABLE_USERS = "users";
+    private static final String COLUMN_NICKNAME = "nickname";
+    private static final String COLUMN_GENDER = "gender";
+    private static final String COLUMN_CONTACT = "contact";
+    private static final String COLUMN_PASSWORD = "password";
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -49,7 +55,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_CATEGORY + " TEXT"
                 + ")";
         db.execSQL(CREATE_CLASSICS_TABLE);
-        Log.d("DatabaseHelper", "Classics table has been created.");
         insertDummyClassics(db);
 
         String CREATE_FESTIVALS_TABLE = "CREATE TABLE " + TABLE_FESTIVALS + "("
@@ -63,15 +68,78 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_CUSTOM_DESC + " TEXT"
                 + ")";
         db.execSQL(CREATE_FESTIVALS_TABLE);
-
         insertDummyFestivals(db);
+
+        String CREATE_USERS_TABLE = "CREATE TABLE " + TABLE_USERS + "("
+                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + COLUMN_NICKNAME + " TEXT UNIQUE,"
+                + COLUMN_GENDER + " TEXT,"
+                + COLUMN_CONTACT + " TEXT UNIQUE,"
+                + COLUMN_PASSWORD + " TEXT"
+                + ")";
+        db.execSQL(CREATE_USERS_TABLE);
+        Log.d("DatabaseHelper", "Users table has been created.");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CLASSICS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FESTIVALS);
         onCreate(db);
+    }
+
+    // 用户注册
+    public long registerUser(String nickname, String gender, String contact, String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NICKNAME, nickname);
+        values.put(COLUMN_GENDER, gender);
+        values.put(COLUMN_CONTACT, contact);
+        values.put(COLUMN_PASSWORD, password); // 注意：实际应用中应该哈希处理密码
+
+        long userId = db.insert(TABLE_USERS, null, values);
+        db.close();
+        return userId;
+    }
+
+    // 用户登录
+    public boolean loginUser(String loginId, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {COLUMN_ID};
+        String selection = COLUMN_NICKNAME + "=? OR " + COLUMN_CONTACT + "=?";
+        String[] selectionArgs = {loginId, loginId};
+
+        Cursor cursor = db.query(TABLE_USERS, columns, selection, selectionArgs, null, null, null);
+        int count = cursor.getCount();
+        cursor.close();
+        db.close();
+
+        if (count > 0) {
+            // 用户存在，检查密码
+            return checkPassword(loginId, password);
+        } else {
+            return false;
+        }
+    }
+
+    // 检查密码
+    private boolean checkPassword(String loginId, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {COLUMN_PASSWORD};
+        String selection = COLUMN_NICKNAME + "=? OR " + COLUMN_CONTACT + "=?";
+        String[] selectionArgs = {loginId, loginId};
+
+        Cursor cursor = db.query(TABLE_USERS, columns, selection, selectionArgs, null, null, null);
+        String storedPassword = "";
+        if (cursor.moveToFirst()) {
+            storedPassword = cursor.getString(cursor.getColumnIndex(COLUMN_PASSWORD));
+        }
+        cursor.close();
+        db.close();
+
+        // 注意：实际应用中应该比较哈希值，而不是明文密码
+        return password.equals(storedPassword);
     }
 
     private void insertDummyClassics(SQLiteDatabase db) {
