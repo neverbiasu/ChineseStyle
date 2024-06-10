@@ -15,7 +15,7 @@ The app is developed in Java using the Android Studio IDE. It follows the Model-
 ## Getting Started
 To get started with the project:
 
-1. Clone the repository: `git clone https://github.com/neverbias/ChineseStyle.git`
+1. Clone the repository: `git clone https://github.com/neverbiasu/ChineseStyle.git`
 2. Open the project in Android Studio.
 3. Run the project on an emulator or a physical device.
 
