@@ -16,7 +16,7 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "chinesestyle.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     private static final String TABLE_FESTIVALS = "festivals";
     private static final String COLUMN_ID = "id";
@@ -133,7 +133,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.query(TABLE_USERS, columns, selection, selectionArgs, null, null, null);
         String storedPassword = "";
         if (cursor.moveToFirst()) {
-            storedPassword = cursor.getString(cursor.getColumnIndex(COLUMN_PASSWORD));
+            int passwordIndex = cursor.getColumnIndex(COLUMN_PASSWORD);
+            if (passwordIndex != -1) {
+                storedPassword = cursor.getString(passwordIndex);
+            } else {
+                // Handle error or skip data retrieval
+            }
         }
         cursor.close();
         db.close();
@@ -143,14 +148,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     private void insertDummyClassics(SQLiteDatabase db) {
+        // 诗
         insertClassic(db, "静夜思", "李白", "床前明月光，疑是地上霜。举头望明月，低头思故乡。", "https://www.example.com/audio1.mp3", "诗");
         insertClassic(db, "将进酒", "李白", "君不见黄河之水天上来，奔流到海不复回。君不见高堂明镜悲白发，朝如青丝暮成雪。", "https://www.example.com/audio2.mp3", "诗");
-        // 添加更多诗词...
+        insertClassic(db, "行宫", "李白", "寥落古行宫，宫花寂寞红。白头宫女在，闲坐说玄宗。", "https://www.example.com/audio3.mp3", "诗");
+        // 词
+        insertClassic(db, "水龙吟", "苏轼", "春色三分，二分尘土，一分流水。", "https://www.example.com/audio4.mp3", "词");
+        insertClassic(db, "行香子·过七里滩", "苏轼", "一叶舟轻，双桨鸿惊。", "https://www.example.com/audio5.mp3", "词");
+        insertClassic(db, "永遇乐", "苏轼", "明月如霜，好风如水，清景无限。", "https://www.example.com/audio6.mp3", "词");
+        // 歌
+        insertClassic(db, "离骚", "屈原", "帝高阳之苗裔兮，朕皇考曰伯庸。", "https://www.example.com/audio7.mp3", "歌");
+        insertClassic(db, "九歌", "屈原", "湛湛江水，当舟而行。", "https://www.example.com/audio8.mp3", "歌");
+        insertClassic(db, "天问", "屈原", "天何所沓？", "https://www.example.com/audio9.mp3", "歌");
+        // 赋
+        insertClassic(db, "子虚赋", "司马相如", "黄河之水天上来，奔流到海不复回。", "https://www.example.com/audio10.mp3", "赋");
+        insertClassic(db, "洛神赋", "曹操", "对海而唱，观者若醉若醺。", "https://www.example.com/audio11.mp3", "赋");
+        insertClassic(db, "七发", "枚乘", "吾闻鬼神，未有不以人为天下者也。", "https://www.example.com/audio12.mp3", "赋");
     }
 
     private void insertDummyFestivals(SQLiteDatabase db) {
         insertFestival(db, "春节", "农历正月初一", "起源于祭祀神灵、祭祖的活动...", R.raw.spring_festival, R.drawable.icon_spring_festival, "icon_spring_festival", "挂灯笼：代表光明，驱散邪气...");
         insertFestival(db, "端午节", "农历五月初五", "纪念爱国诗人屈原...", R.raw.dragon_boat, R.drawable.icon_dragon_boat, "icon_dragon_boat", "吃粽子：代表团圆，缠绕的绳象征家人团聚...");
+        insertFestival(db, "中秋节", "农历八月十五", "古代祭月的习俗...", R.raw.spring_festival, R.drawable.icon_mid_autumn, "icon_mid_autumn", "赏月：象征团圆，月饼象征团圆...");
+        insertFestival(db, "元宵节", "农历正月十五", "古代祭祀灶君的习俗...", R.raw.spring_festival, R.drawable.icon_latern, "icon_lantern", "赏灯：象征光明，猜灯谜：增进智慧...");
         // 添加更多节日...
     }
 
