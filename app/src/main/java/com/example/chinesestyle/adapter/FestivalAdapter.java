@@ -1,5 +1,6 @@
 package com.example.chinesestyle.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.chinesestyle.FestivalDetailActivity;
 import com.example.chinesestyle.R;
 import com.example.chinesestyle.models.Festival;
 
@@ -36,7 +38,9 @@ public class FestivalAdapter extends RecyclerView.Adapter<FestivalAdapter.Festiv
         holder.iconImageView.setImageResource(festival.getIconResourceId());
 
         holder.itemView.setOnClickListener(v -> {
-            // TODO: 跳转到节日详情页或显示详情对话框
+            Intent intent = new Intent(v.getContext(), FestivalDetailActivity.class);
+            intent.putExtra("FESTIVAL_ID", festival.getId());
+            v.getContext().startActivity(intent);
         });
     }
 

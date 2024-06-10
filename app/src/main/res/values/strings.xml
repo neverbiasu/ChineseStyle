@@ -22,4 +22,6 @@
     <string name="painting_dynasty">朝代</string>
     <string name="painting_description">作品简介</string>
     <string name="painting_slide_desc">绘画作品细节</string>
+    <string name="festival_origin">节日起源</string>
+    <string name="festival_customs">节日习俗</string>
 </resources>
