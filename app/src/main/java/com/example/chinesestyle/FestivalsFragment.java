@@ -20,7 +20,6 @@ import java.util.List;
 public class FestivalsFragment extends Fragment {
     private RecyclerView recyclerView;
     private FestivalAdapter adapter;
-    private List<Festival> festivalList;
     private DatabaseHelper dbHelper;
 
 

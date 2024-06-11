@@ -96,7 +96,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_NICKNAME, nickname);
         values.put(COLUMN_GENDER, gender);
         values.put(COLUMN_CONTACT, contact);
-        values.put(COLUMN_PASSWORD, password); // 注意：实际应用中应该哈希处理密码
+        values.put(COLUMN_PASSWORD, password);
 
         long userId = db.insert(TABLE_USERS, null, values);
         db.close();
