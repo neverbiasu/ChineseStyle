@@ -56,11 +56,6 @@ public class FestivalDetailActivity extends AppCompatActivity {
         buttonBack.setOnClickListener(v -> finish());
     }
 
-    public Festival getFestivalById(int id) {
-        // Implementation here...
-        return null;
-    }
-
     private void initViews() {
         videoView = findViewById(R.id.videoview_festival);
         seekBar = findViewById(R.id.seekbar_festival_video);
@@ -72,11 +67,7 @@ public class FestivalDetailActivity extends AppCompatActivity {
     }
 
     private void setupVideo() {
-//        int videoResId = festival.getVideoResourceName();
-//        Log.d(TAG, "setupVideo: videoResId: " + videoResId);
-//        String videoPath = "android.resource://" + getPackageName() + "/" +  videoResId;
-        int videoResId = R.raw.spring_festival;
-//         创建一个指向该资源的 URI
+        int videoResId = festival.getVideoResourceName();
         String videoPath = "android.resource://" + getPackageName() + "/" + videoResId;
         videoView.setVideoURI(Uri.parse(videoPath));
         videoView.setOnPreparedListener(mp -> {
