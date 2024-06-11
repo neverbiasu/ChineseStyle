@@ -13,8 +13,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.LinearLayout;
+import android.widget.Button;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.app.AlertDialog;
 import com.example.chinesestyle.R;
 import com.example.chinesestyle.models.Opera;
 import com.example.chinesestyle.adapter.OperaAdapter;
@@ -53,17 +56,27 @@ public class OperaFragment extends Fragment {
     }
 
     private void setupSearch() {
-        editTextSearch.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+        editTextSearch.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+            LinearLayout layout = new LinearLayout(getContext());
+            layout.setOrientation(LinearLayout.VERTICAL);
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                filterOperas(s.toString(), spinnerCategory.getSelectedItem().toString());
-            }
+            EditText editText = new EditText(getContext());
+            editText.setHint("搜索京剧剧目");
+            layout.addView(editText);
 
-            @Override
-            public void afterTextChanged(Editable s) {}
+            Button buttonSearch = new Button(getContext());
+            buttonSearch.setText("搜索");
+            buttonSearch.setOnClickListener(v1 -> {
+                String query = editText.getText().toString();
+                filterOperas(query, spinnerCategory.getSelectedItem().toString());
+                builder.create().dismiss();
+            });
+            layout.addView(buttonSearch);
+
+            builder.setView(layout);
+            builder.setNegativeButton("取消", (dialog, which) -> dialog.dismiss());
+            builder.show();
         });
     }
 
