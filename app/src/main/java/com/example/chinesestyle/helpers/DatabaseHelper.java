@@ -16,7 +16,7 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "chinesestyle.db";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
 
     private static final String TABLE_FESTIVALS = "festivals";
     private static final String COLUMN_ID = "id";
@@ -171,7 +171,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         insertFestival(db, "端午节", "农历五月初五", "纪念爱国诗人屈原...", R.raw.dragon_boat, R.drawable.icon_dragon_boat, "icon_dragon_boat", "吃粽子：代表团圆，缠绕的绳象征家人团聚...");
         insertFestival(db, "中秋节", "农历八月十五", "古代祭月的习俗...", R.raw.spring_festival, R.drawable.icon_mid_autumn, "icon_mid_autumn", "赏月：象征团圆，月饼象征团圆...");
         insertFestival(db, "元宵节", "农历正月十五", "古代祭祀灶君的习俗...", R.raw.spring_festival, R.drawable.icon_latern, "icon_lantern", "赏灯：象征光明，猜灯谜：增进智慧...");
-        // 添加更多节日...
+        insertFestival(db, "重阳节", "农历九月初九", "古代祭祖的习俗...", R.raw.spring_festival, R.drawable.icon_double_ninth, "icon_double_ninth", "登高：象征远离疾病，吃糕：象征吉祥...");
+        insertFestival(db, "七夕节", "农历七月初七", "牛郎织女鹊桥相会的日子...", R.raw.spring_festival, R.drawable.icon_cn_valentine, "icon_cn_valentine", "牛郎织女相会：象征爱情...");
     }
 
     private void insertClassic(SQLiteDatabase db, String title, String author, String content, String audioUrl, String category) {

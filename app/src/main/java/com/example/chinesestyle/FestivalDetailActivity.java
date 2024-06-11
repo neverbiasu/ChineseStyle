@@ -1,6 +1,5 @@
 package com.example.chinesestyle;
 
-import android.nfc.Tag;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.VideoView;
@@ -17,7 +16,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.example.chinesestyle.helpers.DatabaseHelper;
 import com.example.chinesestyle.models.Festival;
-import com.example.chinesestyle.R;
+
 
 public class FestivalDetailActivity extends AppCompatActivity {
 
