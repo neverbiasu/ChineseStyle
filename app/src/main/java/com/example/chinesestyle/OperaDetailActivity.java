@@ -14,7 +14,8 @@ import android.app.AlertDialog;
 public class OperaDetailActivity extends AppCompatActivity {
     private TextView textViewOperaTitle, textViewStorySummary, textViewAriaName;
     private ImageView imageViewOperaMask;
-    private Button buttonPlayPause;
+    private Button buttonPlay;
+    private Button buttonPause;
     private MediaPlayer mediaPlayer;
     private boolean isPlaying = false;
 
@@ -27,7 +28,8 @@ public class OperaDetailActivity extends AppCompatActivity {
         textViewStorySummary = this.findViewById(R.id.textViewStorySummary);
         textViewAriaName = this.findViewById(R.id.textViewAriaName);
         imageViewOperaMask = this.findViewById(R.id.imageViewOperaMask);
-        buttonPlayPause = this.findViewById(R.id.buttonPlayPause);
+        buttonPlay = this.findViewById(R.id.buttonPlay);
+        buttonPause = this.findViewById(R.id.buttonPause);
 
         mediaPlayer = new MediaPlayer();
 
@@ -37,7 +39,17 @@ public class OperaDetailActivity extends AppCompatActivity {
             setupOperaDetails(opera);
         }
 
-        buttonPlayPause.setOnClickListener(v -> togglePlayPause());
+        buttonPlay.setOnClickListener(v -> {
+            if (!mediaPlayer.isPlaying()) {
+                mediaPlayer.start();
+            }
+        });
+
+        buttonPause.setOnClickListener(v -> {
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.pause();
+            }
+        });
 
         imageViewOperaMask.setOnClickListener(v -> showMaskDialog(opera.getMaskDescription()));
 
@@ -59,17 +71,6 @@ public class OperaDetailActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private void togglePlayPause() {
-        if (isPlaying) {
-            mediaPlayer.pause();
-            buttonPlayPause.setText(R.string.play);
-        } else {
-            mediaPlayer.start();
-            buttonPlayPause.setText(R.string.pause);
-        }
-        isPlaying = !isPlaying;
     }
 
     private void showMaskDialog(String maskDescription) {

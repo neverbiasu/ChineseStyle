@@ -98,7 +98,11 @@ public class OperaFragment extends Fragment {
     private List<Opera> getOperas() {
         List<Opera> operas = new ArrayList<>();
         operas.add(new Opera(1, "霸王别姬", "战败的项羽与虞姬的悲壮爱情", R.drawable.mask_bawang, R.raw.aria_bawang, "霸王之歌", "霸王脸谱以红色为主，象征勇猛、正直。","项羽与虞姬的悲壮爱情",OperaCategory.ROMANCE));
-        operas.add(new Opera(2, "负荆请罪", "蔺相如宽宏原谅廉颇负荆请罪", R.drawable.mask_lianpo, R.raw.aria_lianpo, "负荆之歌", "廉颇脸谱以白色为主，象征高洁、廉正。","蔺相如宽宏原谅廉颇负荆请罪",OperaCategory.HISTORICAL));
+        operas.add(new Opera(2, "负荆请罪", "蔺相如宽宏原谅廉颇负荆请罪", R.drawable.mask_lianpo, R.raw.aria_lianpo, "负荆之曲", "廉颇脸谱以白色为主，象征高洁、廉正。","蔺相如宽宏原谅廉颇负荆请罪",OperaCategory.HISTORICAL));
+        operas.add(new Opera(3,"三山关","土行孙受申公豹蛊惑，反投邓九公为先锋，连败周将",R.drawable.mask_sun,R.raw.aria_bawang,"土行孙之颂","土行孙脸谱以黑色为主，象征阴险、狡诈。","土行孙与姜子牙的对决",OperaCategory.LEGENDARY));
+        operas.add(new Opera(4, "甘露寺", "孙权因刘备占据荆州，屡讨不还，与周瑜设美人计", R.drawable.mask_sunquan, R.raw.aria_bawang, "孙权之音", "孙权脸谱以绿色为主，象征活泼、机智。","孙权联合刘备讨伐曹操",OperaCategory.HISTORICAL));
+        operas.add(new Opera(5, "典韦耀武", "自虎牢关战后，曹操归青州，收纳散亡，典韦挟扶帅旗昂然不动。曹操喜，封为帐前都尉。", R.drawable.mask_dianwei, R.raw.aria_bawang, "典韦之歌", "典韦脸谱以黑色为主，象征勇猛、忠诚。","曹操招募典韦至麾下",OperaCategory.HISTORICAL));
+
         // 添加更多京剧剧目
         return operas;
     }
