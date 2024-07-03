@@ -1,6 +1,8 @@
 package com.example.chinesestyle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.TextView;
 import androidx.viewpager2.widget.ViewPager2;
@@ -31,7 +33,7 @@ public class PaintingDetailActivity extends AppCompatActivity {
 
         // 从 Intent 中获取画作的 ID
         int paintingId = getIntent().getIntExtra("paintingId", -1);
-        Painting painting = getPaintingById(paintingId);
+        PaintingsFragment painting = getPaintingById(paintingId);
         if (painting != null) {
             setupPaintingDetails(painting);
         }
@@ -40,12 +42,15 @@ public class PaintingDetailActivity extends AppCompatActivity {
         buttonBack.setOnClickListener(v -> finish());
     }
 
-    private void setupPaintingDetails(Painting painting) {
+    @SuppressLint("SetTextI18n")
+    private void setupPaintingDetails(PaintingsFragment painting) {
         textViewPaintingTitle.setText(painting.getTitle());
         textViewArtist.setText(painting.getArtist());
         textViewDynasty.setText(painting.getDynasty());
         textViewDescription.setText("这里是关于" + painting.getTitle() + "的详细介绍...");
-
+        textViewDescription.setText("富春山居图是元代画家黄公望于1350年创作的纸本水墨画，中国十大传世名画之一。" +
+                "黄公望为师弟郑樗（无用师）所绘，几经易手，并因“焚画殉葬”而身首两段。前半卷：剩山图，现收藏于浙江省博物馆；" +
+                "后半卷：无用师卷，现藏台北故宫博物院。");
         List<PaintingSlide> slides = getPaintingSlides(painting.getId());
         slideAdapter = new PaintingSlideAdapter(this, slides);
         viewPagerPainting.setAdapter(slideAdapter);
@@ -55,12 +60,12 @@ public class PaintingDetailActivity extends AppCompatActivity {
         ).attach();
     }
 
-    private Painting getPaintingById(int id) {
+    private PaintingsFragment getPaintingById(int id) {
         // 这应该从数据库获取，现在用硬编码代替
         if (id == 1) {
-            return new Painting(1, "富春山居图", "黄公望", "元代", R.drawable.fuchun);
+            return new PaintingsFragment(1, "富春山居图", "黄公望", "元代", R.drawable.fuchun);
         } else if (id == 2) {
-            return new Painting(2, "千里江山图", "王希孟", "北宋", R.drawable.qianli);
+            return new PaintingsFragment(2, "千里江山图", "王希孟", "北宋", R.drawable.qianli);
         }
         return null;
     }

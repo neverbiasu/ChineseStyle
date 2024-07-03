@@ -1,13 +1,13 @@
 package com.example.chinesestyle;
 
-public class Painting {
+public class PaintingsFragment {
     private int id;
     private String title;
     private String artist;
     private String dynasty;
     private int imageUrl;
 
-    public Painting(int id, String title, String artist, String dynasty, int imageUrl) {
+    public PaintingsFragment(int id, String title, String artist, String dynasty, int imageUrl) {
         this.id = id;
         this.title = title;
         this.artist = artist;

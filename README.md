@@ -19,6 +19,15 @@ To get started with the project:
 2. Open the project in Android Studio.
 3. Run the project on an emulator or a physical device.
 
+## Show Cases
+| Screen | Snapshot | Screen | Snapshot |
+|---|---|---|---|
+| Login | ![Login](./snapshots/Login.png) | Settings | ![Settings](./snapshots/SettingsActivity.png) |
+| Classics Fragment | ![Classics Fragment](./snapshots/ClassicsFragment.png) | Classic Detail Activity | ![Classic Detail Activity](./snapshots/ClassicDetailActivity.png) |
+| Festivals Fragment | ![Festivals Fragment](./snapshots/FestivalsFragment.png) | Festival Detail Activity | ![Festival Detail Activity](./snapshots/FestivalDetailActivity.png) |
+| Paintings Fragment | ![Paintings Fragment](./snapshots/PaintingsFragment.png) | Painting Detail Activity | ![Painting Detail Activity](./snapshots/PaintingDetailActivity.png) |
+| Operas Fragment | ![Operas Fragment](./snapshots/OperasFragment.png) | Opera Detail Activity | ![Opera Detail Activity](./snapshots/OperaDetailActivity.png) |
+
 ## Contributing
 Contributions are welcome! Please read the contributing guidelines before starting.
 

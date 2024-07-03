@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (item.getItemId() == R.id.nav_opera) {
-                    selectedFragment = new OperaFragment();
+                    selectedFragment = new OperasFragment();
                 }
 
                 if (item.getItemId() == R.id.action_settings) {

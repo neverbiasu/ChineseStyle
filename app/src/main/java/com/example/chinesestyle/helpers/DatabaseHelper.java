@@ -16,7 +16,7 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "chinesestyle.db";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 7;
 
     private static final String TABLE_FESTIVALS = "festivals";
     private static final String COLUMN_ID = "id";
@@ -149,7 +149,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private void insertDummyClassics(SQLiteDatabase db) {
         // 诗
-        insertClassic(db, "静夜思", "李白", "床前明月光，疑是地上霜。举头望明月，低头思故乡。", "https://www.example.com/audio1.mp3", "诗");
+        insertClassic(db, "静夜思", "李白", "床前明月光，疑是地上霜。举头望明月，低头思故乡。", "http://nf.sycdn.kuwo.cn/cf217f5fb66a94e5342030f661b4e269/6667f1b2/resource/n1/69/32/588957081.mp3", "诗");
         insertClassic(db, "将进酒", "李白", "君不见黄河之水天上来，奔流到海不复回。君不见高堂明镜悲白发，朝如青丝暮成雪。", "https://www.example.com/audio2.mp3", "诗");
         insertClassic(db, "行宫", "李白", "寥落古行宫，宫花寂寞红。白头宫女在，闲坐说玄宗。", "https://www.example.com/audio3.mp3", "诗");
         // 词

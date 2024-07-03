@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.chinesestyle.R;
-import com.example.chinesestyle.Painting;
 import com.example.chinesestyle.adapter.PaintingAdapter;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,7 @@ import java.util.List;
 public class PaintingsFragment extends Fragment {
     private RecyclerView recyclerViewPaintings;
     private PaintingAdapter adapter;
-    private List<Painting> paintings;
+    private List<com.example.chinesestyle.PaintingsFragment> paintings;
 
     @Nullable
     @Override
@@ -38,10 +37,10 @@ public class PaintingsFragment extends Fragment {
         recyclerViewPaintings.setAdapter(adapter);
     }
 
-    private List<Painting> getPaintings() {
-        List<Painting> paintings = new ArrayList<>();
-        paintings.add(new Painting(1, "富春山居图", "黄公望", "元代", R.drawable.fuchun));
-        paintings.add(new Painting(2, "千里江山图", "王希孟", "北宋", R.drawable.qianli));
+    private List<com.example.chinesestyle.PaintingsFragment> getPaintings() {
+        List<com.example.chinesestyle.PaintingsFragment> paintings = new ArrayList<>();
+        paintings.add(new com.example.chinesestyle.PaintingsFragment(1, "富春山居图", "黄公望", "元代", R.drawable.fuchun));
+        paintings.add(new com.example.chinesestyle.PaintingsFragment(2, "千里江山图", "王希孟", "北宋", R.drawable.qianli));
         // 添加更多绘画作品
         return paintings;
     }

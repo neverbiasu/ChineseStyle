@@ -90,11 +90,31 @@ public class OperaDetailActivity extends AppCompatActivity {
                     "霸王之歌", "霸王脸谱以红色为主，象征勇猛、正直。眉间一抹墨，表其悲壮命运。",
                     "项羽与虞姬的悲壮爱情",OperaCategory.ROMANCE);
         } else if (id == 2) {
-            return new Opera(2, "廉颇负荆请罪",
+            return new Opera(2, "负荆请罪",
                     "廉颇因误解蔺相如，后深感愧疚，遂负荆请罪以示诚意。展现了廉颇的勇于认错和蔺相如的大度。",
                     R.drawable.mask_lianpo, R.raw.aria_lianpo,
                     "请罪词", "廉颇脸谱以红黑为主，象征勇猛、刚直。眉宇间透露出其深感愧疚和悔改之情。",
                     "蔺相如宽宏原谅廉颇负荆请罪",OperaCategory.HISTORICAL);
+        } else if (id == 3) {
+            return new Opera(3, "三山关",
+                    "土行孙受申公豹蛊惑，反投邓九公为先锋，连败周将。姜子牙识破申公豹阴谋，化解危机。",
+                    R.drawable.mask_sun, R.raw.aria_bawang,
+                    "土行孙之颂", "土行孙脸谱以黑色为主，象征阴险、狡诈。眼神中透露出其受蛊惑的狂热。",
+                    "土行孙与姜子牙的对决",OperaCategory.LEGENDARY);
+
+        } else if (id == 4) {
+            return new Opera(4, "甘露寺",
+                    "孙权因刘备占据荆州，屡讨不还，与周瑜设美人计，最终联合刘备讨伐曹操。",
+                    R.drawable.mask_sunquan, R.raw.aria_bawang,
+                    "孙权之音", "孙权脸谱以绿色为主，象征活泼、机智。眼神中透露出其狡猾和机智。",
+                    "孙权联合刘备讨伐曹操",OperaCategory.HISTORICAL);
+
+        } else if (id == 5) {
+            return new Opera(5, "典韦耀武",
+                    "自虎牢关战后，曹操归青州，收纳散亡，典韦挟扶帅旗昂然不动。曹操喜，封为帐前都尉。",
+                    R.drawable.mask_dianwei, R.raw.aria_bawang,
+                    "典韦之歌", "典韦脸谱以黑色为主，象征勇猛、忠诚。眼神中透露出其忠诚和勇猛。",
+                    "曹操招募典韦至麾下",OperaCategory.HISTORICAL);
         }
         return null;
     }

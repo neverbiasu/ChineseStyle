@@ -9,14 +9,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.chinesestyle.R;
-import com.example.chinesestyle.Painting;
+import com.example.chinesestyle.PaintingsFragment;
 import java.util.List;
 
 public class PaintingAdapter extends RecyclerView.Adapter<PaintingAdapter.PaintingViewHolder> {
-    private List<Painting> paintings;
+    private List<PaintingsFragment> paintings;
     private Context context;
 
-    public PaintingAdapter(Context context, List<Painting> paintings) {
+    public PaintingAdapter(Context context, List<PaintingsFragment> paintings) {
         this.context = context;
         this.paintings = paintings;
     }
@@ -30,7 +30,7 @@ public class PaintingAdapter extends RecyclerView.Adapter<PaintingAdapter.Painti
 
     @Override
     public void onBindViewHolder(@NonNull PaintingViewHolder holder, int position) {
-        Painting painting = paintings.get(position);
+        PaintingsFragment painting = paintings.get(position);
         holder.textViewPaintingTitle.setText(painting.getTitle());
         holder.imageViewPainting.setImageResource(painting.getImageResource());
 

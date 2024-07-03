@@ -21,7 +21,7 @@ import com.example.chinesestyle.adapter.OperaAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OperaFragment extends Fragment {
+public class OperasFragment extends Fragment {
     private RecyclerView recyclerViewOpera;
     private OperaAdapter adapter;
     private List<Opera> operas;
